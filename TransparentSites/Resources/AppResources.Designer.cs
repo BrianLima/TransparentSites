@@ -61,7 +61,7 @@ namespace TransparentSites.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to add.
+        ///   Looks up a localized string similar to pin.
         /// </summary>
         public static string AppBarButtonText {
             get {

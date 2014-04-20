@@ -30,9 +30,9 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ListBox x:Name="ImageList" Margin="5,5,5,20">
                 <ListBox.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate >
                         <ScrollContentPresenter>
-                            <Image x:Name="image" Source="{Binding ImagePath}" Width="60" Height="60"/>             
+                            <Image x:Name="image" Source="{Binding IconPath}" Width="60" Height="60"  DoubleTap="image_DoubleTap" />             
                         </ScrollContentPresenter>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

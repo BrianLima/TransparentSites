@@ -27,5 +27,17 @@ namespace TransparentSitesDB
         private string _IconPath;
         [Column(Name = "IconPath", CanBeNull = false)]
         public string IconPath { get { return _IconPath; } set { _IconPath = value; } }
+
+        public static System.Collections.IEnumerable GetIcons()
+        {
+            DAOIcons daoIcons = new DAOIcons();
+            return daoIcons.getAllIcons();
+        }
+
+        public bool Save()
+        {
+            DAOIcons DAOIcons = new DAOIcons();
+            return DAOIcons.Save(this);
+        }
     }
 }

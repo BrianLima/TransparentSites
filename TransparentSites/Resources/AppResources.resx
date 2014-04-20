@@ -129,7 +129,7 @@
     <value>TransparentSites</value>
   </data>
   <data name="AppBarButtonText" xml:space="preserve">
-    <value>add</value>
+    <value>pin</value>
   </data>
   <data name="AppBarMenuItemText" xml:space="preserve">
     <value>about</value>

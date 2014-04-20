@@ -47,13 +47,13 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Margin="24,133,0,28" Grid.RowSpan="2">
-            <Image x:Name="SiteTile" Tap="SiteTile_Tap" Margin="78,275,78,32"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="0,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,49,0,0" TextWrapping="Wrap" Text="{Binding Path=LocalizedResources.MainPageLinkBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="0,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,148,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageDescriptionBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,245,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageImageBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
-
+            <TextBox x:Name="tileLink" HorizontalAlignment="Left" Height="72" Margin="-10,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageLinkBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
+            <TextBox x:Name="tileDescription" HorizontalAlignment="Left" Height="72" Margin="-10,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,109,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageDescriptionBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="0,206,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageImageBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
+            <Rectangle Tap="SiteTile_Tap" Fill="Black" Height="250" Width="250" HorizontalAlignment="Left" Margin="100,235,0,0" VerticalAlignment="Top" Stroke="Red"/>
+            <Image x:Name="tileIcon" Height="250" Width="250" Tap="SiteTile_Tap" Margin="100,235,106,122"/>
         </Grid>
     </Grid>
 

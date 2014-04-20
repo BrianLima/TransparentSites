@@ -17,12 +17,29 @@ namespace TransparentSitesDB
             List<IconsModel> data = new List<IconsModel>();
             using (DataBaseContext db = new DataBaseContext(DataBaseContext.ConnectionString))
             {
-                data = (from cards in db.cards
-                        orderby cards.PlayerTeam
+                data = (from cards in db.iconsModel
+                        orderby cards.id
                         select cards).ToList();
             }
             return data;
         }
 
+
+        internal static bool Save(IconsModel iconsModel)
+        {
+            try
+            {
+                using (DataBaseContext db = new DataBaseContext(DataBaseContext.ConnectionString))
+                {
+                    db.iconsModel.InsertOnSubmit(iconsModel);
+                    db.SubmitChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
