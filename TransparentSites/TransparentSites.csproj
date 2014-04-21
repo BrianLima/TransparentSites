@@ -90,6 +90,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="About.xaml.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -115,6 +116,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="About.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ImagePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -138,7 +143,32 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Icons\box-256.png" />
+    <Content Include="Assets\Icons\chat-256.png" />
+    <Content Include="Assets\Icons\cook-256.png" />
+    <Content Include="Assets\Icons\food-256.png" />
+    <Content Include="Assets\Icons\github-256.png" />
+    <Content Include="Assets\Icons\google_drive-256.png" />
+    <Content Include="Assets\Icons\home-256.png" />
+    <Content Include="Assets\Icons\link-256.png" />
+    <Content Include="Assets\Icons\lock-256.png" />
+    <Content Include="Assets\Icons\magazine-256.png" />
+    <Content Include="Assets\Icons\metamorphose-256.png" />
+    <Content Include="Assets\Icons\music_record-256.png" />
+    <Content Include="Assets\Icons\news-256.png" />
+    <Content Include="Assets\Icons\note_music-256.png" />
+    <Content Include="Assets\Icons\private-256.png" />
+    <Content Include="Assets\Icons\reddit-256.png" />
+    <Content Include="Assets\Icons\speech_bubble-256.png" />
+    <Content Include="Assets\Icons\star-256.png" />
+    <Content Include="Assets\Icons\steam-256.png" />
+    <Content Include="Assets\Icons\suitcase-256.png" />
+    <Content Include="Assets\Icons\tire-256.png" />
+    <Content Include="Assets\Icons\tumblr-256.png" />
+    <Content Include="Assets\Icons\utorrent-256.png" />
     <Content Include="Assets\Icons\Wheel.png" />
+    <Content Include="Assets\Icons\wikipedia-256.png" />
+    <Content Include="Assets\Icons\Wordpress-256.png" />
     <Content Include="Assets\pins\briano.png" />
     <Content Include="Assets\pins\darkPin.png" />
     <Content Include="Assets\pins\favs.png" />
@@ -147,6 +177,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall - Copy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
@@ -158,6 +191,7 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="transparentsites.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">

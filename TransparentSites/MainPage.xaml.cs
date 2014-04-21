@@ -10,22 +10,34 @@ using Microsoft.Phone.Shell;
 using TransparentSites.Resources;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Device.Location;
+using System.Diagnostics;
 
 namespace TransparentSites
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage : PhoneApplicationPage, IDisposable
     {
+        //Geographical position tracker for geoposition based ads
+        private GeoCoordinateWatcher gcw = null;
+
         // Constructor
         public MainPage()
         {
             InitializeComponent();
 
+            tileDescription.Text = App.description;
+            tileLink.Text = App.link;
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
             if (!String.IsNullOrEmpty(App.imageUrl))
             {
                 tileIcon.Source = new BitmapImage(new Uri(App.imageUrl, UriKind.Relative));
             }
+
+            //Initiating the GeoCordinater and assigning it's handlers
+            this.gcw = new GeoCoordinateWatcher();
+            this.gcw.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(gcw_PositionChanged);
+            this.gcw.Start();
         }
 
         private void BuildLocalizedApplicationBar()
@@ -51,7 +63,13 @@ namespace TransparentSites
 
             // Create a new menu item with the localized string from AppResources.
             ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
+            appBarMenuItem.Click += appBarMenuItem_Click;
             ApplicationBar.MenuItems.Add(appBarMenuItem);
+        }
+
+        private void appBarMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/About.xaml", UriKind.Relative));
         }
 
         private void appBarButton_Click(object sender, EventArgs e)
@@ -60,7 +78,8 @@ namespace TransparentSites
             iconTile.Title = tileDescription.Text;
             iconTile.WideContent1 = "TransparentSites";
             iconTile.WideContent2 = tileLink.Text;
-            iconTile.IconImage = new Uri(App.imageUrl);
+            iconTile.IconImage = new Uri(App.imageUrl, UriKind.Relative);
+            iconTile.SmallIconImage = new Uri(App.imageUrl, UriKind.Relative);
             iconTile.BackgroundColor = Colors.Transparent;
 
             ShellTile.Create(new Uri("/NavigationPage.xaml?url=" + tileLink.Text, UriKind.Relative), iconTile, false);
@@ -68,8 +87,55 @@ namespace TransparentSites
 
         private void SiteTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            App.link = tileLink.Text;
+            App.description = tileDescription.Text;
             NavigationService.Navigate(new Uri("/ImagePicker.xaml", UriKind.Relative));
         }
+
+        private void gcw_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
+            // Stop the GeoCoordinateWatcher now that we have the device location.
+            this.gcw.Stop();
+
+            adControl1.Latitude = e.Position.Location.Latitude;
+            adControl1.Longitude = e.Position.Location.Longitude;
+
+            Debug.WriteLine("Device lat/long: " + e.Position.Location.Latitude + ", " + e.Position.Location.Longitude);
+        }
+
+        private void adControl1_ErrorOccurred(object sender, Microsoft.Advertising.AdErrorEventArgs e)
+        {
+            Debug.WriteLine("AdControl error: " + e.Error.Message);
+        }
+
+
+        private void AdControl_AdRefreshed(object sender, EventArgs e)
+        {
+            Debug.WriteLine("AdControl new ad received");
+        }
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (this.gcw != null)
+                {
+                    this.gcw.Dispose();
+                    this.gcw = null;
+                }
+            }
+        }
+
+        #endregion
+
 
         //The following code handles how the app should work on either WP themes
         #region appTheme
@@ -99,5 +165,13 @@ namespace TransparentSites
             }
         }
         #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.link = tileLink.Text;
+            App.description = tileDescription.Text;
+            NavigationService.Navigate(new Uri("/ImagePicker.xaml", UriKind.Relative));
+
+        }
     }
 }

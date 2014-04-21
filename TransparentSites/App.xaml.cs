@@ -12,7 +12,9 @@ namespace TransparentSites
 {
     public partial class App : Application
     {
-        public static string imageUrl;
+        public static string imageUrl = String.Empty;
+        public static string link = String.Empty;
+        public static string description = String.Empty;
 
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.

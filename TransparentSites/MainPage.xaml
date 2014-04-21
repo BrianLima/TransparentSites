@@ -1,11 +1,12 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="TransparentSites.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
+    x:Class="TransparentSites.MainPage"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -41,19 +42,20 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="{Binding Path=LocalizedResources.MainPageDescription, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="{Binding LocalizedResources.MainPageDescription, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Margin="24,133,0,28" Grid.RowSpan="2">
+            <Rectangle Tap="SiteTile_Tap" Fill="Black" HorizontalAlignment="Left" Height="244" Margin="87,238,0,0" Stroke="Red" VerticalAlignment="Top" Width="267"/>
+
             <TextBox x:Name="tileLink" HorizontalAlignment="Left" Height="72" Margin="-10,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageLinkBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
             <TextBox x:Name="tileDescription" HorizontalAlignment="Left" Height="72" Margin="-10,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,109,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageDescriptionBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,206,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageImageBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
-            <Rectangle Tap="SiteTile_Tap" Fill="Black" Height="250" Width="250" HorizontalAlignment="Left" Margin="100,235,0,0" VerticalAlignment="Top" Stroke="Red"/>
-            <Image x:Name="tileIcon" Height="250" Width="250" Tap="SiteTile_Tap" Margin="100,235,106,122"/>
+            <Image x:Name="tileIcon"  Tap="SiteTile_Tap" Margin="87,238,102,125"/>
+            <UI:AdControl ApplicationId=" 0c8caca9-f2e9-4f8b-97b3-55c59c3b5815" AdUnitId="10732971" HorizontalAlignment="Left" Height="80" Margin="0,487,0,0" VerticalAlignment="Top" Width="446" ErrorOccurred="adControl1_ErrorOccurred" AdRefreshed="AdControl_AdRefreshed" x:Name="adControl1"/>
         </Grid>
     </Grid>
 

@@ -39,15 +39,45 @@ namespace TransparentSitesDB
             }
         }
 
-        private void GenerateData()
+        private static String[] files = new String[25]
         {
-            IconsModel iconsModel = new IconsModel();
-            iconsModel.IconPath = "/Assets/Icons/Wheel.png";
-            iconsModel.Save();
+            "/Assets/Icons/box-256.png",
+            "/Assets/Icons/chat-256.png",
+            "/Assets/Icons/food-256.png",
+            "/Assets/Icons/github-256.png",
+            "/Assets/Icons/google_drive-256.png",
+            "/Assets/Icons/home-256.png",
+            "/Assets/Icons/link-256.png",
+            "/Assets/Icons/lock-256.png",
+            "/Assets/Icons/magazine-256.png",
+            "/Assets/Icons/metamorphose-256.png",
+            "/Assets/Icons/music_record-256.png",
+            "/Assets/Icons/news-256.png",
+            "/Assets/Icons/note_music-256.png",
+            "/Assets/Icons/private-256.png",
+            "/Assets/Icons/reddit-256.png",
+            "/Assets/Icons/speech_bubble-256.png",
+            "/Assets/Icons/star-256.png",
+            "/Assets/Icons/steam-256.png",
+            "/Assets/Icons/suitcase-256.png",
+            "/Assets/Icons/tire-256.png",
+            "/Assets/Icons/tumblr-256.png",
+            "/Assets/Icons/utorrent-256.png",
+            "/Assets/Icons/Wheel.png",
+            "/Assets/Icons/wikipedia-256.png",
+            "/Assets/Icons/wordpress-256.png",
+        };
+    
 
-            IconsModel iconsModel1 = new IconsModel();
-            iconsModel1.IconPath = "/Assets/Icons/Wheel.png";
-            iconsModel1.Save();
+        private void GenerateData()
+        {   
+            IconsModel iconsModel = new IconsModel();
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                iconsModel.IconPath = files[i];
+                iconsModel.Save();
+            }
         }
     }
 }

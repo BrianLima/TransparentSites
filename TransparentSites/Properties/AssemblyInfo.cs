@@ -7,7 +7,7 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TransparentSites")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Pin Transparent tiles that work as links to sites to your homescreen!")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("TransparentSites")]

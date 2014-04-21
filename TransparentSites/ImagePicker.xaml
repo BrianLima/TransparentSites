@@ -22,18 +22,18 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="pick an icon" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ListBox x:Name="ImageList" Margin="5,5,5,20">
                 <ListBox.ItemTemplate>
-                    <DataTemplate >
-                        <ScrollContentPresenter>
-                            <Image x:Name="image" Source="{Binding IconPath}" Width="60" Height="60"  DoubleTap="image_DoubleTap" />             
-                        </ScrollContentPresenter>
+                    <DataTemplate>
+                        <ContentPresenter UseLayoutRounding="True">
+                            <Image x:Name="image" Source="{Binding IconPath}" Width="60" Height="60"  DoubleTap="image_DoubleTap" Margin="10,10,10,10" />             
+                        </ContentPresenter>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
