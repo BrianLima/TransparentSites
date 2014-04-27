@@ -1,5 +1,6 @@
 ﻿<phone:PhoneApplicationPage
     x:Class="TransparentSites.ImagePicker"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -29,11 +30,14 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <ListBox x:Name="ImageList" Margin="5,5,5,20">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <toolkit:WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <ContentPresenter UseLayoutRounding="True">
-                            <Image x:Name="image" Source="{Binding IconPath}" Width="60" Height="60"  DoubleTap="image_DoubleTap" Margin="10,10,10,10" />             
-                        </ContentPresenter>
+                        <Image x:Name="image" Source="{Binding IconPath}" Width="60" Height="60"  DoubleTap="image_DoubleTap" Margin="10,10,10,10" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>

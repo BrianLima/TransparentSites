@@ -35,7 +35,10 @@ namespace TransparentSites
                 App.imageUrl = iconModel.IconPath;
             }
 
-            NavigationService.Navigate(new Uri("/MainPage.xaml",UriKind.Relative));
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
+            }
         }
     }
 }

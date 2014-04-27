@@ -24,20 +24,25 @@ namespace TransparentSites
         public MainPage()
         {
             InitializeComponent();
-
-            tileDescription.Text = App.description;
-            tileLink.Text = App.link;
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
-            if (!String.IsNullOrEmpty(App.imageUrl))
-            {
-                tileIcon.Source = new BitmapImage(new Uri(App.imageUrl, UriKind.Relative));
-            }
 
             //Initiating the GeoCordinater and assigning it's handlers
             this.gcw = new GeoCoordinateWatcher();
             this.gcw.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(gcw_PositionChanged);
             this.gcw.Start();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            tileDescription.Text = App.description;
+            tileLink.Text = App.link;
+            if (!String.IsNullOrEmpty(App.imageUrl))
+            {
+                tileIcon.Source = new BitmapImage(new Uri(App.imageUrl, UriKind.Relative));
+            }
+
+            base.OnNavigatedTo(e);
         }
 
         private void BuildLocalizedApplicationBar()

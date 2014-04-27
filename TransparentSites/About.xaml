@@ -5,7 +5,6 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
     x:Class="TransparentSites.About"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -38,7 +37,7 @@
             <Button Content="Follow me!" HorizontalAlignment="Left" Margin="10,462,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.462,0.557" Click="Button_Click"/>
             <TextBlock HorizontalAlignment="Left" Margin="145,50,0,0" TextWrapping="Wrap" Text="@Brianostorm" VerticalAlignment="Top" Width="142" FontWeight="Bold"/>
             <Image x:Name ="avatar" Height="242" Margin="101,82,103,283" VerticalAlignment="Center"/>
-            <Button x:Name="RedditTPP" Content="Reddit TPP"  HorizontalAlignment="Left" Margin="173,462,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.462,0.557" Click="RedditTPP_Click" Height="72" Width="163"/>
+            <Button x:Name="praise" Content="Praise Helix"  HorizontalAlignment="Left" Margin="173,462,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.462,0.557" Click="RedditTPP_Click" Height="72" Width="180"/>
         </Grid>
     </Grid>
 
