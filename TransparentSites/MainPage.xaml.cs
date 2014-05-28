@@ -15,22 +15,15 @@ using System.Diagnostics;
 
 namespace TransparentSites
 {
-    public partial class MainPage : PhoneApplicationPage, IDisposable
+    public partial class MainPage : PhoneApplicationPage
     {
-        //Geographical position tracker for geoposition based ads
-        private GeoCoordinateWatcher gcw = null;
 
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-            // Sample code to localize the ApplicationBar
+            //Code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
-
-            //Initiating the GeoCordinater and assigning it's handlers
-            this.gcw = new GeoCoordinateWatcher();
-            this.gcw.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(gcw_PositionChanged);
-            this.gcw.Start();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -94,53 +87,8 @@ namespace TransparentSites
         {
             App.link = tileLink.Text;
             App.description = tileDescription.Text;
-            NavigationService.Navigate(new Uri("/ImagePicker.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/WebImagePicker.xaml", UriKind.Relative));
         }
-
-        private void gcw_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
-            // Stop the GeoCoordinateWatcher now that we have the device location.
-            this.gcw.Stop();
-
-            adControl1.Latitude = e.Position.Location.Latitude;
-            adControl1.Longitude = e.Position.Location.Longitude;
-
-            Debug.WriteLine("Device lat/long: " + e.Position.Location.Latitude + ", " + e.Position.Location.Longitude);
-        }
-
-        private void adControl1_ErrorOccurred(object sender, Microsoft.Advertising.AdErrorEventArgs e)
-        {
-            Debug.WriteLine("AdControl error: " + e.Error.Message);
-        }
-
-
-        private void AdControl_AdRefreshed(object sender, EventArgs e)
-        {
-            Debug.WriteLine("AdControl new ad received");
-        }
-
-        #region IDisposable Members
-
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (this.gcw != null)
-                {
-                    this.gcw.Dispose();
-                    this.gcw = null;
-                }
-            }
-        }
-
-        #endregion
-
 
         //The following code handles how the app should work on either WP themes
         #region appTheme
@@ -175,8 +123,7 @@ namespace TransparentSites
         {
             App.link = tileLink.Text;
             App.description = tileDescription.Text;
-            NavigationService.Navigate(new Uri("/ImagePicker.xaml", UriKind.Relative));
-
+            NavigationService.Navigate(new Uri("/WebImagePicker.xaml", UriKind.Relative));
         }
     }
 }

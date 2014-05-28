@@ -47,15 +47,14 @@
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Margin="24,133,0,28" Grid.RowSpan="2">
-            <Rectangle Tap="SiteTile_Tap" Fill="Black" HorizontalAlignment="Left" Height="244" Margin="87,238,0,0" Stroke="Red" VerticalAlignment="Top" Width="267"/>
+            <Rectangle Tap="SiteTile_Tap" HorizontalAlignment="Left" Height="244" Margin="32,277,0,0" Stroke="#FF00A2FF" VerticalAlignment="Top" Width="267"/>
 
             <TextBox x:Name="tileLink" HorizontalAlignment="Left" Height="72" Margin="-10,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageLinkBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
             <TextBox x:Name="tileDescription" HorizontalAlignment="Left" Height="72" Margin="-10,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,109,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageDescriptionBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,206,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageImageBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top"/>
-            <Image x:Name="tileIcon"  Tap="SiteTile_Tap" Margin="87,238,102,125"/>
-            <UI:AdControl ApplicationId=" 0c8caca9-f2e9-4f8b-97b3-55c59c3b5815" AdUnitId="10732971" HorizontalAlignment="Left" Height="80" Margin="0,487,0,0" VerticalAlignment="Top" Width="446" ErrorOccurred="adControl1_ErrorOccurred" AdRefreshed="AdControl_AdRefreshed" x:Name="adControl1"/>
+            <Image x:Name="tileIcon" Tap="SiteTile_Tap" Margin="87,238,102,125"/>
         </Grid>
     </Grid>
 

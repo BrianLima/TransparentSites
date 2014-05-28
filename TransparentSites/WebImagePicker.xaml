@@ -1,0 +1,53 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="TransparentSites.WebImagePicker"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="TransparentSites" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="pick an icon" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBox x:Name="boxCriteria" HorizontalAlignment="Left" Height="72" Margin="1,10,0,0" TextWrapping="Wrap" Text="Search criteria here" VerticalAlignment="Top" Width="326" MouseEnter="boxCriteria_MouseEnter"/>
+            <Button x:Name="buttonSearch" Content="Search" HorizontalAlignment="Left" Margin="327,10,0,0" VerticalAlignment="Top" Click="buttonSearch_Click"/>
+            <TextBlock x:Name="blockResult" HorizontalAlignment="Left" Margin="11,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435" Height="28" Text="All the icons are provided by icons8.com"/>
+            <ListBox x:Name="imageList" Margin="11,115,10,85" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <toolkit:WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding imageUri}" Height="126" Width="126" Name="image" DoubleTap="image_DoubleTap"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <UI:AdControl ApplicationId="0c8caca9-f2e9-4f8b-97b3-55c59c3b5815" AdUnitId="10732971" HorizontalAlignment="Left" Height="80" Margin="0,527,0,0" VerticalAlignment="Top" Width="456" ErrorOccurred="adControl1_ErrorOccurred" AdRefreshed="AdControl_AdRefreshed" x:Name="adControl1"/>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
