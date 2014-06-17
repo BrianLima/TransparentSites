@@ -33,7 +33,9 @@
             <TextBox x:Name="boxCriteria" HorizontalAlignment="Left" Height="72" Margin="1,10,0,0" TextWrapping="Wrap" Text="Search criteria here" VerticalAlignment="Top" Width="326" MouseEnter="boxCriteria_MouseEnter"/>
             <Button x:Name="buttonSearch" Content="Search" HorizontalAlignment="Left" Margin="327,10,0,0" VerticalAlignment="Top" Click="buttonSearch_Click"/>
             <TextBlock x:Name="blockResult" HorizontalAlignment="Left" Margin="11,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435" Height="28" Text="All the icons are provided by icons8.com"/>
-            <ListBox x:Name="imageList" Margin="11,115,10,85" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+
+            <!--
+            <ListBox x:Name="imageList" Margin="11,115,10,85" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <toolkit:WrapPanel/>
@@ -41,12 +43,14 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding imageUri}" Height="126" Width="126" Name="image" DoubleTap="image_DoubleTap"/>
+                        <Image Source="{Binding image}" Height="126" Width="126" Name="image" DoubleTap="image_DoubleTap" Stretch="UniformToFill" HorizontalAlignment="Center"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            -->
             <UI:AdControl ApplicationId="0c8caca9-f2e9-4f8b-97b3-55c59c3b5815" AdUnitId="10732971" HorizontalAlignment="Left" Height="80" Margin="0,527,0,0" VerticalAlignment="Top" Width="456" ErrorOccurred="adControl1_ErrorOccurred" AdRefreshed="AdControl_AdRefreshed" x:Name="adControl1"/>
-
+            <toolkit:WrapPanel x:Name="panel" Height="407" Margin="10,115,10,0" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.ManipulationMode="Control" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            </toolkit:WrapPanel>
         </Grid>
     </Grid>
 

@@ -32,7 +32,7 @@ namespace TransparentSites
             tileLink.Text = App.link;
             if (!String.IsNullOrEmpty(App.imageUrl))
             {
-                tileIcon.Source = new BitmapImage(new Uri(App.imageUrl, UriKind.Relative));
+                tileIcon.Source = new BitmapImage(new Uri("http://cdn.icons8.com/storage/windows8/PNG/256/Transport/car-256.png", UriKind.Absolute));
             }
 
             base.OnNavigatedTo(e);
@@ -45,6 +45,7 @@ namespace TransparentSites
 
             // Create a new button and set the text value to the localized string from AppResources.
             string uri;
+            System.Windows.Media.Color color;
             if (CurrentTheme == AppTheme.Dark)
             {
                 uri = "/Assets/pins/whitePin.png";
@@ -120,6 +121,13 @@ namespace TransparentSites
         #endregion
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.link = tileLink.Text;
+            App.description = tileDescription.Text;
+            NavigationService.Navigate(new Uri("/WebImagePicker.xaml", UriKind.Relative));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             App.link = tileLink.Text;
             App.description = tileDescription.Text;

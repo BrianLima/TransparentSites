@@ -13,12 +13,19 @@ using System.Diagnostics;
 using System.Device.Location;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Media.Imaging;
+using System.IO.IsolatedStorage;
+using System.Net.Http;
+using TransparentSitesDB;
+using System.Windows.Media;
 
 namespace TransparentSites
 {
     public partial class WebImagePicker : PhoneApplicationPage, IDisposable
     {
         string filter;
+        List<String> files = new List<string>();
+        IEnumerable<imageData> data;
         List<imageData> imageSource;
         //Geographical position tracker for geoposition based ads
         private GeoCoordinateWatcher gcw = null;
@@ -32,12 +39,11 @@ namespace TransparentSites
             this.gcw.Start();
 
             imageSource = new List<imageData>();
-            this.imageList.ItemsSource = imageSource;
         }
 
         private void image_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-
+            string a = ((Image)sender).Name;
         }
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
@@ -48,7 +54,7 @@ namespace TransparentSites
 
         void beginRequest()
         {
-            string uri = "http://api.icons8.com/api/iconsets/search?term=" + filter + "&amount=20&platform=win8";
+            string uri = "http://api.icons8.com/api/iconsets/search?term=" + filter + "&amount=50&platform=win8";
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
             request.BeginGetResponse(new AsyncCallback(ReadWebRequestCallback), request);
         }
@@ -57,39 +63,45 @@ namespace TransparentSites
         {
             HttpWebRequest request = (HttpWebRequest)ar.AsyncState;
             HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(ar);
-            using(StreamReader reader = new StreamReader(response.GetResponseStream()))
+            using (StreamReader reader = new StreamReader(response.GetResponseStream()))
             {
                 string result = @reader.ReadToEnd();
                 //XDocument docResult = XDocument.Parse(result, LoadOptions.None);
                 XElement elements = XElement.Parse(result);
                 //FillList(docResult);
-                FillList2(elements);
-
-            }
-        }
-
-        private void FillList2(XElement elements)
-        {
-            var data = from var in elements.Descendants("icon")
-                       //where (int)var.Element("width") == 256
-                       select new imageData
-                       {
-                           imageUri = var.Element("png").Element("png").Attribute("link").Value
+                data = from var in elements.Descendants("icon")
+                       select new imageData { 
+                           imageUri = new Uri(var.Element("png").Element("png").Attribute("link").Value, UriKind.Absolute) 
                        };
-            this.Dispatcher.BeginInvoke((Action)(() => { imageList.ItemsSource = data; }));
+            }
+            this.Dispatcher.BeginInvoke((Action)(() => { LoadIMG(data); }));
         }
 
-        private void FillList(XDocument docResult)
+        private void LoadIMG(IEnumerable<imageData> images)
         {
-            //var element = XElement.Load(docResult,);
-
-            var data = from query in docResult.Descendants("icon")
-                          select new imageData
-                          {
-                              imageUri = query.Element("png").Value
-                          };
-
-            this.Dispatcher.BeginInvoke((Action)(() => { imageList.ItemsSource = data; }));
+            panel.Children.Clear();
+            foreach (var image in images)
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                    {
+                        
+                        ImageSource source = new BitmapImage(image.imageUri);
+                        Image control = new Image();
+                        control.DoubleTap += image_DoubleTap;
+                        control.Name = image.imageUri.ToString();
+                        control.Height = 60;
+                        control.Width = 60;
+                        control.Source = source;
+                        control.Margin = new System.Windows.Thickness(10, 10, 10, 10);
+                        
+                        WrapPanel wrap = new WrapPanel();
+                        wrap.Children.Add(control);
+                        wrap.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+                        wrap.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
+                        panel.Children.Add(wrap);
+                        
+                    });
+            }
         }
 
         private void gcw_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
