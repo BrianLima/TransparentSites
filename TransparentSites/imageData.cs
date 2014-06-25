@@ -9,12 +9,6 @@ namespace TransparentSites
 {
     public class imageData
     {
-        public BitmapImage image
-        {
-            get;
-            set;
-        }
-
         public Uri imageUri
         {
             get;

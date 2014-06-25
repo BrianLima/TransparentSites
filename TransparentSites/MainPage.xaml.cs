@@ -28,13 +28,18 @@ namespace TransparentSites
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            //Store the typed data so the userdon't need to re-type it when he comeback
             tileDescription.Text = App.description;
             tileLink.Text = App.link;
             if (!String.IsNullOrEmpty(App.imageUrl))
             {
-                tileIcon.Source = new BitmapImage(new Uri("http://cdn.icons8.com/storage/windows8/PNG/256/Transport/car-256.png", UriKind.Absolute));
+                //Downloading the image
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    ImageSource source = new BitmapImage(new Uri(App.imageUrl, UriKind.Absolute));
+                    tileIcon.Source = source;
+                });
             }
-
             base.OnNavigatedTo(e);
         }
 
@@ -77,8 +82,8 @@ namespace TransparentSites
             iconTile.Title = tileDescription.Text;
             iconTile.WideContent1 = "TransparentSites";
             iconTile.WideContent2 = tileLink.Text;
-            iconTile.IconImage = new Uri(App.imageUrl, UriKind.Relative);
-            iconTile.SmallIconImage = new Uri(App.imageUrl, UriKind.Relative);
+            iconTile.IconImage = new Uri(App.imageUrl,UriKind.Absolute);
+            iconTile.SmallIconImage = new Uri(App.imageUrl, UriKind.Absolute);
             iconTile.BackgroundColor = Colors.Transparent;
 
             ShellTile.Create(new Uri("/NavigationPage.xaml?url=" + tileLink.Text, UriKind.Relative), iconTile, false);

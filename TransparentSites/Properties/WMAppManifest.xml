@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{9886e81d-36f9-4eef-94bd-68f15d6985ce}" Title="TransparentSites" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="Brian Lima" Description="Pin traansparent tiles that work as links to your homescreen!" Publisher="TransparentSites" PublisherID="{250ab371-43e7-4739-92b2-ded679314844}">
+  <App xmlns="" ProductID="{9886e81d-36f9-4eef-94bd-68f15d6985ce}" Title="TransparentSites" RuntimeType="Silverlight" Version="2.0.0.0" Genre="apps.normal" Author="Brian Lima" Description="Pin traansparent tiles that work as links to your homescreen!" Publisher="TransparentSites" PublisherID="{250ab371-43e7-4739-92b2-ded679314844}">
     <IconPath IsRelative="true" IsResource="false">transparentsites.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
