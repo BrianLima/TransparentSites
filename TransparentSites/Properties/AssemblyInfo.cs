@@ -9,7 +9,7 @@ using System.Resources;
 [assembly: AssemblyTitle("TransparentSites")]
 [assembly: AssemblyDescription("Pin Transparent tiles that work as links to sites to your homescreen!")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Briano")]
 [assembly: AssemblyProduct("TransparentSites")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
@@ -32,6 +32,6 @@ using System.Resources;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.1.0")]
+[assembly: AssemblyFileVersion("2.1.0")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]
