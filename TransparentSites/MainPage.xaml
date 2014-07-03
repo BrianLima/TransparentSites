@@ -47,15 +47,14 @@
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Margin="24,133,0,28" Grid.RowSpan="2">
-            <Rectangle x:Name="imageRectangle" Tap="SiteTile_Tap" HorizontalAlignment="Left" Height="244" Margin="92,238,0,0" Stroke="#FF00A2FF" VerticalAlignment="Top" Width="267" Fill="White"/>
-
+            <Rectangle x:Name="imageRectangle" Tap="SiteTile_Tap" HorizontalAlignment="Left" Height="244" Margin="92,238,0,0" VerticalAlignment="Top" Width="267" Fill="White"/>
             <TextBox x:Name="tileLink" HorizontalAlignment="Left" Height="72" Margin="-10,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Background="#BFC1C1C1"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageLinkBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Foreground="Black"/>
             <TextBox x:Name="tileDescription" HorizontalAlignment="Left" Height="72" Margin="-10,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" Background="#BFC1C1C1"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,109,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageDescriptionBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Foreground="Black"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,206,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageImageBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Foreground="Black"/>
             <Image x:Name="tileIcon" Tap="SiteTile_Tap" Margin="92,238,97,125"/>
-            <Button Click="Button_Click_1" Content="Button" HorizontalAlignment="Left" Margin="174,482,0,0" VerticalAlignment="Top"/>
+        
         </Grid>
     </Grid>
 

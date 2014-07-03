@@ -33,10 +33,10 @@
             <TextBox x:Name="boxCriteria" HorizontalAlignment="Left" Height="72" Margin="1,10,0,0" TextWrapping="Wrap" Text="Search criteria here" VerticalAlignment="Top" Width="326" MouseEnter="boxCriteria_MouseEnter" Background="#BFD4D4D4"/>
             <Button x:Name="buttonSearch" Content="Search" HorizontalAlignment="Left" Margin="327,10,0,0" VerticalAlignment="Top" Click="buttonSearch_Click" BorderBrush="Black" Foreground="Black"/>
             <TextBlock x:Name="blockResult" HorizontalAlignment="Left" Margin="11,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435" Height="28" Text="All the icons are provided by icons8.com" Foreground="Black"/>
-            <UI:AdControl ApplicationId="0c8caca9-f2e9-4f8b-97b3-55c59c3b5815" AdUnitId="10732971" HorizontalAlignment="Left" Height="80" Margin="0,527,0,0" VerticalAlignment="Top" Width="456" AdRefreshed="AdControl_AdRefreshed" x:Name="adControl1"/>
             <toolkit:WrapPanel x:Name="panel" Height="407" Margin="10,115,10,0" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.ManipulationMode="Control" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+            <UI:AdControl ApplicationId="test_client" AdUnitId="Image480_80"  HorizontalAlignment="Left" Height="80" Margin="0,527,0,0" VerticalAlignment="Top" Width="456" AdRefreshed="AdControl1_AdRefreshed" ErrorOccurred="adControl1_ErrorOccurred"  x:Name="adControl1"/>
         </Grid>
-        <ProgressBar IsIndeterminate="True" Foreground="#FF007EEC" Visibility="Visible" x:Name="progress" HorizontalAlignment="Left" Height="52" Margin="12,276,0,0" Grid.Row="1" VerticalAlignment="Top" Width="456" Background="#19D4B90D"/>
+        <ProgressBar IsIndeterminate="True" Foreground="#FF007EEC" Visibility="Collapsed" x:Name="progress" HorizontalAlignment="Left" Height="54" Margin="12,276,0,0" Grid.Row="1" VerticalAlignment="Top" Width="456" Background="#19D4B90D"/>
     </Grid>
 
 </phone:PhoneApplicationPage>

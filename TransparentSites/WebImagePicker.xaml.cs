@@ -41,11 +41,14 @@ namespace TransparentSites
         }
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
-        {
+        {    
+            progress.Visibility = Visibility.Visible;
+            progress.Height = 100;
+            progress.Width = panel.Width;
+
             filter = boxCriteria.Text;
             try
             {
-                progress.Visibility = System.Windows.Visibility.Visible;
                 beginRequest();
             }
             catch (Exception ಠ_ಠ)
@@ -61,9 +64,16 @@ namespace TransparentSites
 
         void beginRequest()
         {
-            string uri = "http://api.icons8.com/api/iconsets/search?term=" + filter + "&amount=50&platform=win8";
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
-            request.BeginGetResponse(new AsyncCallback(ReadWebRequestCallback), request);
+            try
+            {
+                string uri = "http://api.icons8.com/api/iconsets/search?term=" + filter + "&amount=50&platform=win8";
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(uri);
+                request.BeginGetResponse(new AsyncCallback(ReadWebRequestCallback), request);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error while trying to contact icons8.com, check your internet connection and try again");
+            }
         }
 
         private void ReadWebRequestCallback(IAsyncResult ar)
@@ -83,7 +93,9 @@ namespace TransparentSites
             }
             catch (Exception ಠ_ಠ)
             {
-                MessageBox.Show("Error while trying to download the icons." + Environment.NewLine + "Check your internet connection and try again.");
+                this.Dispatcher.BeginInvoke((Action)(() => { 
+                    MessageBox.Show("Error while trying to download the icons." + Environment.NewLine + "Check your internet connection and try again."); 
+                }));
                 Debug.WriteLine(ಠ_ಠ.Message);
             }
         }
@@ -124,9 +136,14 @@ namespace TransparentSites
             Debug.WriteLine("Device lat/long: " + e.Position.Location.Latitude + ", " + e.Position.Location.Longitude);
         }
 
-        private void AdControl_AdRefreshed(object sender, EventArgs e)
+        private void AdControl1_AdRefreshed(object sender, EventArgs e)
         {
             Debug.WriteLine("AdControl new ad received");
+        }
+
+        private void adControl1_ErrorOccurred(object sender, Microsoft.Advertising.AdErrorEventArgs e)
+        {
+            Debug.WriteLine("AdControl error: " + e.Error.Message);
         }
 
         #region IDisposable Members

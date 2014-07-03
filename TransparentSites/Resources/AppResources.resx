@@ -138,12 +138,12 @@
     <value>new tile</value>
   </data>
   <data name="MainPageDescriptionBlock" xml:space="preserve">
-    <value>tile description</value>
+    <value>tile description:</value>
   </data>
   <data name="MainPageImageBlock" xml:space="preserve">
-    <value>tile image</value>
+    <value>tile image:</value>
   </data>
   <data name="MainPageLinkBlock" xml:space="preserve">
-    <value>tile link</value>
+    <value>tile link:</value>
   </data>
 </root>

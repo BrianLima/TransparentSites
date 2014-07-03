@@ -141,38 +141,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\ApplicationIcon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Icons\box-256.png" />
-    <Content Include="Assets\Icons\chat-256.png" />
-    <Content Include="Assets\Icons\cook-256.png" />
-    <Content Include="Assets\Icons\food-256.png" />
-    <Content Include="Assets\Icons\github-256.png" />
-    <Content Include="Assets\Icons\google_drive-256.png" />
-    <Content Include="Assets\Icons\home-256.png" />
-    <Content Include="Assets\Icons\link-256.png" />
-    <Content Include="Assets\Icons\lock-256.png" />
-    <Content Include="Assets\Icons\magazine-256.png" />
-    <Content Include="Assets\Icons\metamorphose-256.png" />
-    <Content Include="Assets\Icons\music_record-256.png" />
-    <Content Include="Assets\Icons\news-256.png" />
-    <Content Include="Assets\Icons\note_music-256.png" />
-    <Content Include="Assets\Icons\private-256.png" />
-    <Content Include="Assets\Icons\reddit-256.png" />
-    <Content Include="Assets\Icons\speech_bubble-256.png" />
-    <Content Include="Assets\Icons\star-256.png" />
-    <Content Include="Assets\Icons\steam-256.png" />
-    <Content Include="Assets\Icons\suitcase-256.png" />
-    <Content Include="Assets\Icons\tire-256.png" />
-    <Content Include="Assets\Icons\tumblr-256.png" />
-    <Content Include="Assets\Icons\utorrent-256.png" />
-    <Content Include="Assets\Icons\Wheel.png" />
-    <Content Include="Assets\Icons\wikipedia-256.png" />
-    <Content Include="Assets\Icons\Wordpress-256.png" />
     <Content Include="Assets\pins\briano.png" />
     <Content Include="Assets\pins\darkPin.png" />
     <Content Include="Assets\pins\favs.png" />
+    <Content Include="Assets\pins\feature.search.png" />
     <Content Include="Assets\pins\whitePin.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -192,7 +164,6 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
@@ -216,9 +187,7 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

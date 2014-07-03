@@ -17,7 +17,6 @@ namespace TransparentSites
 {
     public partial class MainPage : PhoneApplicationPage
     {
-
         // Constructor
         public MainPage()
         {
@@ -49,31 +48,44 @@ namespace TransparentSites
             ApplicationBar = new ApplicationBar();
 
             // Create a new button and set the text value to the localized string from AppResources.
-            string uri;
-            System.Windows.Media.Color color;
+            string uriPin;
             if (CurrentTheme == AppTheme.Dark)
             {
-                uri = "/Assets/pins/whitePin.png";
+                uriPin = "/Assets/pins/whitePin.png";
             }
             else
             {
-                uri = "/Assets/pins/darkPin.png";
+                uriPin = "/Assets/pins/darkPin.png";
             }
             
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri(uri, UriKind.Relative));
-            appBarButton.Text = AppResources.AppBarButtonText;
-            appBarButton.Click +=appBarButton_Click;
-            ApplicationBar.Buttons.Add(appBarButton);
+            ApplicationBarIconButton appBarButtonPin = new ApplicationBarIconButton(new Uri(uriPin, UriKind.Relative));
+            appBarButtonPin.Text = AppResources.AppBarButtonText;
+            appBarButtonPin.Click +=appBarButton_Click;
+            ApplicationBar.Buttons.Add(appBarButtonPin);
+
+            ApplicationBarIconButton appBarButtonSearch = new ApplicationBarIconButton(new Uri("/Assets/pins/feature.search.png", UriKind.Relative));
+            appBarButtonSearch.Text = AppResources.AppBarButtonText;
+            appBarButtonSearch.Click += appBarButton_ClickSearch;
+            ApplicationBar.Buttons.Add(appBarButtonSearch);
 
             // Create a new menu item with the localized string from AppResources.
             ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-            appBarMenuItem.Click += appBarMenuItem_Click;
+            appBarMenuItem.Click += appBarMenuItem_ClickAbout;
             ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
 
-        private void appBarMenuItem_Click(object sender, EventArgs e)
+        private void appBarButton_ClickSearch(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/About.xaml", UriKind.Relative));
+            App.link = tileLink.Text;
+            App.description = tileDescription.Text;
+            NavigationService.Navigate(new Uri("/WebImagePicker.xaml", UriKind.Relative));
+        }
+
+        private void appBarMenuItem_ClickAbout(object sender, EventArgs e)
+        {
+            App.link = tileLink.Text;
+            App.description = tileDescription.Text;
+            NavigationService.Navigate(new Uri("/WebImagePicker.xaml", UriKind.Relative));
         }
 
         private void appBarButton_Click(object sender, EventArgs e)
@@ -87,13 +99,6 @@ namespace TransparentSites
             iconTile.BackgroundColor = Colors.Transparent;
 
             ShellTile.Create(new Uri("/NavigationPage.xaml?url=" + tileLink.Text, UriKind.Relative), iconTile, false);
-        }
-
-        private void SiteTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            App.link = tileLink.Text;
-            App.description = tileDescription.Text;
-            NavigationService.Navigate(new Uri("/WebImagePicker.xaml", UriKind.Relative));
         }
 
         //The following code handles how the app should work on either WP themes
@@ -125,14 +130,7 @@ namespace TransparentSites
         }
         #endregion
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            App.link = tileLink.Text;
-            App.description = tileDescription.Text;
-            NavigationService.Navigate(new Uri("/WebImagePicker.xaml", UriKind.Relative));
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void SiteTile_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             App.link = tileLink.Text;
             App.description = tileDescription.Text;

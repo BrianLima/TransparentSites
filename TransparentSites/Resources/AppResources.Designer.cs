@@ -97,7 +97,7 @@ namespace TransparentSites.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tile description.
+        ///   Looks up a localized string similar to tile description:.
         /// </summary>
         public static string MainPageDescriptionBlock {
             get {
@@ -106,7 +106,7 @@ namespace TransparentSites.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tile image.
+        ///   Looks up a localized string similar to tile image:.
         /// </summary>
         public static string MainPageImageBlock {
             get {
@@ -115,7 +115,7 @@ namespace TransparentSites.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to tile link.
+        ///   Looks up a localized string similar to tile link:.
         /// </summary>
         public static string MainPageLinkBlock {
             get {
