@@ -34,7 +34,11 @@
             <Button x:Name="buttonSearch" Content="Search" HorizontalAlignment="Left" Margin="327,10,0,0" VerticalAlignment="Top" Click="buttonSearch_Click" BorderBrush="Black" Foreground="Black"/>
             <TextBlock x:Name="blockResult" HorizontalAlignment="Left" Margin="11,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435" Height="28" Text="All the icons are provided by icons8.com" Foreground="Black"/>
             <toolkit:WrapPanel x:Name="panel" Height="407" Margin="10,115,10,0" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.ManipulationMode="Control" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+<<<<<<< HEAD
             <UI:AdControl ApplicationId="0c8caca9-f2e9-4f8b-97b3-55c59c3b5815" AdUnitId="10732971"  HorizontalAlignment="Left" Height="80" Margin="0,527,0,0" VerticalAlignment="Top" Width="480" AdRefreshed="AdControl1_AdRefreshed" ErrorOccurred="adControl1_ErrorOccurred"  x:Name="adControl1"/>
+=======
+            <UI:AdControl ApplicationId="test_client" AdUnitId="Image480_80"  HorizontalAlignment="Left" Height="80" Margin="0,527,0,0" VerticalAlignment="Top" Width="456" AdRefreshed="AdControl1_AdRefreshed" ErrorOccurred="adControl1_ErrorOccurred"  x:Name="adControl1"/>
+>>>>>>> origin/master
         </Grid>
         <ProgressBar IsIndeterminate="True" Foreground="#FF007EEC" Visibility="Collapsed" x:Name="progress" HorizontalAlignment="Left" Height="54" Margin="12,276,0,0" Grid.Row="1" VerticalAlignment="Top" Width="456" Background="#19D4B90D"/>
     </Grid>
