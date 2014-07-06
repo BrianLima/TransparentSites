@@ -146,7 +146,6 @@
   <data name="MainPageLinkBlock" xml:space="preserve">
     <value>tile link:</value>
   </data>
-<<<<<<< HEAD
   <data name="ApplicationName" xml:space="preserve">
     <value>TransparentSites</value>
   </data>
@@ -156,6 +155,4 @@
   <data name="FeedbackTo" xml:space="preserve">
     <value>brian.ghwt@outlook.com</value>
   </data>
-=======
->>>>>>> origin/master
 </root>

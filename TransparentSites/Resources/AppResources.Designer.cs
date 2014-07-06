@@ -81,7 +81,6 @@ namespace TransparentSites.Resources {
         /// <summary>
         ///   Looks up a localized string similar to TransparentSites.
         /// </summary>
-<<<<<<< HEAD
         public static string ApplicationName {
             get {
                 return ResourceManager.GetString("ApplicationName", resourceCulture);
@@ -91,8 +90,6 @@ namespace TransparentSites.Resources {
         /// <summary>
         ///   Looks up a localized string similar to TransparentSites.
         /// </summary>
-=======
->>>>>>> origin/master
         public static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
@@ -100,7 +97,6 @@ namespace TransparentSites.Resources {
         }
         
         /// <summary>
-<<<<<<< HEAD
         ///   Looks up a localized string similar to Briano.
         /// </summary>
         public static string CompanyName {
@@ -119,8 +115,6 @@ namespace TransparentSites.Resources {
         }
         
         /// <summary>
-=======
->>>>>>> origin/master
         ///   Looks up a localized string similar to new tile.
         /// </summary>
         public static string MainPageDescription {

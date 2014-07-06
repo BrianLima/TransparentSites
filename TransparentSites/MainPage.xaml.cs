@@ -1,24 +1,19 @@
-<<<<<<< HEAD
 ﻿using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
 using System.Diagnostics;
-=======
 ﻿using System;
 using System.Collections.Generic;
->>>>>>> origin/master
 using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-<<<<<<< HEAD
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using TransparentSites.Resources;
-=======
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -27,7 +22,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Device.Location;
 using System.Diagnostics;
->>>>>>> origin/master
 
 namespace TransparentSites
 {
@@ -39,7 +33,6 @@ namespace TransparentSites
             InitializeComponent();
             //Code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
-<<<<<<< HEAD
 
             FeedbackOverlay.VisibilityChanged += FeedbackOverlay_VisibilityChanged;
 #if DEBUG
@@ -51,8 +44,6 @@ namespace TransparentSites
         void FeedbackOverlay_VisibilityChanged(object sender, EventArgs e)
         {
             ApplicationBar.IsVisible = (FeedbackOverlay.Visibility != Visibility.Visible);
-=======
->>>>>>> origin/master
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -89,33 +80,16 @@ namespace TransparentSites
             }
             
             ApplicationBarIconButton appBarButtonPin = new ApplicationBarIconButton(new Uri(uriPin, UriKind.Relative));
-<<<<<<< HEAD
             appBarButtonPin.Text =  TransparentSites.Resources.AppResources.AppBarButtonText;
-=======
-            appBarButtonPin.Text = AppResources.AppBarButtonText;
->>>>>>> origin/master
             appBarButtonPin.Click +=appBarButton_Click;
             ApplicationBar.Buttons.Add(appBarButtonPin);
 
             ApplicationBarIconButton appBarButtonSearch = new ApplicationBarIconButton(new Uri("/Assets/pins/feature.search.png", UriKind.Relative));
-<<<<<<< HEAD
             appBarButtonSearch.Text = TransparentSites.Resources.AppResources.AppBarButtonText;
-=======
-            appBarButtonSearch.Text = AppResources.AppBarButtonText;
->>>>>>> origin/master
             appBarButtonSearch.Click += appBarButton_ClickSearch;
             ApplicationBar.Buttons.Add(appBarButtonSearch);
 
-            // Create a new menu item with the localized string from AppResources.
-<<<<<<< HEAD
-            ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(TransparentSites.Resources.AppResources.AppBarMenuItemText);
-=======
-            ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
->>>>>>> origin/master
-            appBarMenuItem.Click += appBarMenuItem_ClickAbout;
-            ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
-
         private void appBarButton_ClickSearch(object sender, EventArgs e)
         {
             App.link = tileLink.Text;

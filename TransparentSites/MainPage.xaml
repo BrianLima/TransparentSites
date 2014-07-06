@@ -7,10 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
     x:Class="TransparentSites.MainPage"
-<<<<<<< HEAD
     xmlns:ctrl="clr-namespace:RateMyApp.Controls;assembly=RateMyApp"
-=======
->>>>>>> origin/master
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -25,8 +22,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-<<<<<<< HEAD
-=======
         <!-- LOCALIZATION NOTE:
             To localize the displayed strings copy their values to appropriately named
             keys in the app's neutral language resource file (AppResources.resx) then
@@ -46,7 +41,6 @@
             CurrentUICulture of the app at run time.
          -->
 
->>>>>>> origin/master
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="{Binding LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0" Foreground="Black"/>
@@ -63,15 +57,12 @@
             <Image x:Name="tileIcon" Tap="SiteTile_Tap" Margin="92,238,97,125"/>
         
         </Grid>
-<<<<<<< HEAD
         
         <ctrl:FeedbackOverlay x:Name="FeedbackOverlay"
             Grid.RowSpan="2"
             FeedbackTo="{Binding Path=LocalizedResources.FeedbackTo, Source={StaticResource LocalizedStrings}}"
             ApplicationName="{Binding Path=LocalizedResources.ApplicationName, Source={StaticResource LocalizedStrings}}"
             CompanyName="{Binding Path=LocalizedResources.CompanyName, Source={StaticResource LocalizedStrings}}"/>
-=======
->>>>>>> origin/master
     </Grid>
 
 </phone:PhoneApplicationPage>
