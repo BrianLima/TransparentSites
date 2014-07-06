@@ -1,0 +1,44 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="TransparentSites.About"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Praise the Helix" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="About" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="436">
+				<Run Text="Developed  by:"/>
+				<LineBreak/>
+				<Run/>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="10,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" Text="To choose an icon for the tile, double tap the red-bordered box in the main page, if you have any suggestions, talk to me on Twitter!"/>
+            <Button Content="Follow me!" HorizontalAlignment="Left" Margin="10,462,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.462,0.557" Click="Button_Click"/>
+            <TextBlock HorizontalAlignment="Left" Margin="145,50,0,0" TextWrapping="Wrap" Text="@Brianostorm" VerticalAlignment="Top" Width="142" FontWeight="Bold"/>
+            <Image x:Name ="avatar" Height="242" Margin="101,82,103,283" VerticalAlignment="Center"/>
+            <Button x:Name="praise" Content="Praise Helix"  HorizontalAlignment="Left" Margin="173,462,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.462,0.557" Click="RedditTPP_Click" Height="72" Width="180"/>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
