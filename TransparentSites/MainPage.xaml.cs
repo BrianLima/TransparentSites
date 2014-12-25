@@ -19,16 +19,6 @@ namespace TransparentSites
             //Code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
 
-            FeedbackOverlay.VisibilityChanged += FeedbackOverlay_VisibilityChanged;
-#if DEBUG
-// Read the internal state of the Rate My App control
-            DataContext = RateMyApp.Helpers.FeedbackHelper.Default;
-#endif
-        }
-
-        void FeedbackOverlay_VisibilityChanged(object sender, EventArgs e)
-        {
-            ApplicationBar.IsVisible = (FeedbackOverlay.Visibility != Visibility.Visible);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

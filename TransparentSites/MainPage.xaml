@@ -59,14 +59,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="0,109,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageDescriptionBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Foreground="Black"/>
             <TextBlock HorizontalAlignment="Left" Margin="0,206,0,0" TextWrapping="Wrap" Text="{Binding LocalizedResources.MainPageImageBlock, Source={StaticResource LocalizedStrings}}" VerticalAlignment="Top" Foreground="Black"/>
             <Image x:Name="tileIcon" Tap="SiteTile_Tap" Margin="92,238,97,125"/>
-
         </Grid>
-
-        <ctrl:FeedbackOverlay x:Name="FeedbackOverlay"
-            Grid.RowSpan="2"
-            FeedbackTo="{Binding Path=LocalizedResources.FeedbackTo, Source={StaticResource LocalizedStrings}}"
-            ApplicationName="{Binding Path=LocalizedResources.ApplicationName, Source={StaticResource LocalizedStrings}}"
-            CompanyName="{Binding Path=LocalizedResources.CompanyName, Source={StaticResource LocalizedStrings}}" Grid.ColumnSpan="2"/>
     </Grid>
 
 </phone:PhoneApplicationPage>
