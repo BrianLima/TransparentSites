@@ -1,4 +1,4 @@
-﻿<phone:PhoneApplicationPage
+﻿<phone:PhoneApplicationPage xmlns:WindowsPhone8="clr-namespace:Microsoft.AdMediator.WindowsPhone8;assembly=Microsoft.AdMediator.WindowsPhone8" 
     x:Class="TransparentSites.WebImagePicker"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:UI="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
@@ -38,7 +38,8 @@
             <Button x:Name="buttonSearch" Content="Search" Margin="0,10,11,0" VerticalAlignment="Top" Click="buttonSearch_Click" BorderBrush="Black" Foreground="Black" HorizontalAlignment="Right" Width="119"/>
             <TextBlock x:Name="blockResult" HorizontalAlignment="Left" Margin="11,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="435" Height="28" Text="All the icons are provided by icons8.com" Foreground="Black"/>
             <toolkit:WrapPanel x:Name="panel" Height="407" Margin="10,115,10,0" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.ManipulationMode="Control" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
-            <UI:AdControl ApplicationId="0c8caca9-f2e9-4f8b-97b3-55c59c3b5815" AdUnitId="10732971" Margin="0,527,-23,0" AdRefreshed="AdControl1_AdRefreshed" ErrorOccurred="adControl1_ErrorOccurred"  x:Name="adControl1"/>
+            <WindowsPhone8:AdMediatorControl x:Name="AdMediator" HorizontalAlignment="Left" Height="80" Id="AdMediator-Id-0C0974CF-F41C-45AA-91F5-7DF3C310A107" Margin="-10,527,-13,0" VerticalAlignment="Top" Width="480"/>
+
         </Grid>
         <ProgressBar IsIndeterminate="True" Foreground="#FF007EEC" Visibility="Collapsed" x:Name="progress" HorizontalAlignment="Left" Height="54" Margin="10.507,276,0,0" Grid.Row="1" VerticalAlignment="Top" Width="456" Background="#19D4B90D" Grid.Column="1"/>
     </Grid>

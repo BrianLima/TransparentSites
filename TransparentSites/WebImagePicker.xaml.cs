@@ -14,21 +14,15 @@ using System.Windows.Media;
 
 namespace TransparentSites
 {
-    public partial class WebImagePicker : PhoneApplicationPage, IDisposable
+    public partial class WebImagePicker : PhoneApplicationPage
     {
         string filter;
         List<String> files = new List<string>();
         IEnumerable<imageData> data;
-        //Geographical position tracker for geoposition based ads
-        private GeoCoordinateWatcher gcw = null;
-
         public WebImagePicker()
         {
             InitializeComponent();
             //Initiating the GeoCordinater and assigning it's handlers
-            this.gcw = new GeoCoordinateWatcher();
-            this.gcw.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(gcw_PositionChanged);
-            this.gcw.Start();
         }
 
         private void image_DoubleTap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -124,48 +118,6 @@ namespace TransparentSites
                     });
             }
         }
-
-        private void gcw_PositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
-            // Stop the GeoCoordinateWatcher now that we have the device location.
-            this.gcw.Stop();
-
-            adControl1.Latitude = e.Position.Location.Latitude;
-            adControl1.Longitude = e.Position.Location.Longitude;
-
-            Debug.WriteLine("Device lat/long: " + e.Position.Location.Latitude + ", " + e.Position.Location.Longitude);
-        }
-
-        private void AdControl1_AdRefreshed(object sender, EventArgs e)
-        {
-            Debug.WriteLine("AdControl new ad received");
-        }
-
-        private void adControl1_ErrorOccurred(object sender, Microsoft.Advertising.AdErrorEventArgs e)
-        {
-            Debug.WriteLine("AdControl error: " + e.Error.Message);
-        }
-
-        #region IDisposable Members
-
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (this.gcw != null)
-                {
-                    this.gcw.Dispose();
-                    this.gcw = null;
-                }
-            }
-        }
-        #endregion
 
         private void boxCriteria_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
